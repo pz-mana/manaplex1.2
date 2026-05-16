@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MANAPLEX ①② 施術別マニュアル</title>
+<style>
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f5f2ee;
+    color: #1a1612;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'YuGothic', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: #0a0a0a;
+    padding: 48px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 120%, rgba(184,151,90,0.18) 0%, transparent 65%);
+  }
+  .header-label {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: #b8975a;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 1;
+  }
+  .header-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: #f5f2ee;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    opacity: 1;
+  }
+  .header-title span {
+    color: #b8975a;
+  }
+  .header-sub {
+    margin-top: 12px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(245,242,238,0.45);
+    opacity: 1;
+  }
+  .header-rule {
+    width: 40px;
+    height: 1px;
+    background: #b8975a;
+    margin: 20px auto 0;
+    opacity: 1;
+  }
+
+  /* ── NAV / TOC ── */
+  .toc {
+    background: #0a0a0a;
+    padding: 0 0 32px;
+  }
+  .toc-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    border-top: 1px solid rgba(184,151,90,0.2);
+    margin: 0 24px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(184,151,90,0.12);
+    text-decoration: none;
+    color: rgba(245,242,238,0.7);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .toc-item:hover { color: #d4b47a; }
+  .toc-num {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 16px;
+    color: #b8975a;
+    min-width: 28px;
+    opacity: 0.8;
+  }
+
+  /* ── MAIN ── */
+  main { padding: 0 0 60px; }
+
+  /* ── CHAPTER ── */
+  .chapter {
+    padding: 40px 20px 0;
+    opacity: 1;
+  }
+
+  .chapter-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c8b898;
+  }
+  .chapter-num {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: #b8975a;
+    line-height: 1;
+    opacity: 0.6;
+    min-width: 48px;
+  }
+  .chapter-title-wrap { flex: 1; }
+  .chapter-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #0a0a0a;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+  }
+  .chapter-tagline {
+    font-size: 11px;
+    color: #6b5f55;
+    letter-spacing: 0.12em;
+    margin-top: 5px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: #b8975a;
+    text-transform: uppercase;
+    margin: 24px 0 12px;
+  }
+
+  /* ── STEPS ── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: #faf8f4;
+    border: 1px solid #c8b898;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 14px;
+    border-bottom: 1px solid rgba(184,151,90,0.15);
+    position: relative;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 16px;
+    color: #b8975a;
+    min-width: 18px;
+    line-height: 1.8;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+  .step-text {
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: #1a1612;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .step-text strong {
+    color: #0a0a0a;
+    font-weight: 500;
+  }
+  .step-text .highlight {
+    background: linear-gradient(transparent 60%, rgba(184,151,90,0.18) 60%);
+  }
+  .step-accent {
+    background: rgba(184,151,90,0.06);
+  }
+
+  /* ── EFFECT BOX ── */
+  .effect-box {
+    background: #0a0a0a;
+    color: #f5f2ee;
+    padding: 20px 18px;
+    border-radius: 2px;
+    margin: 20px 0;
+  }
+  .effect-box .effect-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: #b8975a;
+    margin-bottom: 12px;
+  }
+  .effect-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .effect-list li {
+    font-size: 12.5px;
+    color: rgba(245,242,238,0.85);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .effect-list li::before {
+    content: '◆';
+    color: #b8975a;
+    font-size: 7px;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .effect-conclusion {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(184,151,90,0.25);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #d4b47a;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── INFO CARD ── */
+  .info-card {
+    border: 1px solid #c8b898;
+    border-left: 3px solid #b8975a;
+    padding: 14px 16px;
+    background: #faf8f4;
+    margin: 16px 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .info-card .info-title {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: #b8975a;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .info-card p, .info-card li {
+    font-size: 12.5px;
+    color: #1a1612;
+    line-height: 1.75;
+  }
+  .info-card ul { list-style: none; padding: 0; }
+  .info-card ul li::before {
+    content: '›  ';
+    color: #b8975a;
+  }
+
+  /* ── RULE BOX ── */
+  .rule-box {
+    background: #fdf5e8;
+    border: 1px solid #e8d8b8;
+    padding: 14px 16px;
+    border-radius: 2px;
+    margin: 16px 0;
+  }
+  .rule-box .rule-title {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: #b8975a;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .rule-box p {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #1a1612;
+  }
+
+  /* ── COMPARE TABLE ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .compare-col {
+    padding: 14px 14px;
+    border-radius: 2px;
+    font-size: 12.5px;
+    line-height: 1.8;
+  }
+  .compare-col.before {
+    background: #f0eeea;
+    border: 1px solid #d4cfc8;
+  }
+  .compare-col.after {
+    background: #0a0a0a;
+    border: 1px solid #0a0a0a;
+    color: #f5f2ee;
+  }
+  .compare-col .col-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: #b8975a;
+    margin-bottom: 8px;
+    display: block;
+    text-transform: uppercase;
+  }
+  .compare-col.before .col-label { color: #6b5f55; }
+  .compare-col ul { list-style: none; padding: 0; }
+  .compare-col li { font-size: 12px; padding: 2px 0; }
+  .compare-col.after li::before { content: '◆ '; color: #b8975a; font-size: 8px; }
+
+  /* ── HAIR TYPE TAGS ── */
+  .hair-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .hair-tag {
+    font-size: 11px;
+    padding: 5px 12px;
+    border: 1px solid #c8b898;
+    border-radius: 999px;
+    color: #6b5f55;
+    letter-spacing: 0.05em;
+    background: #faf8f4;
+  }
+
+  /* ── DILUTION TABLE ── */
+  .dilution-grid {
+    background: #faf8f4;
+    border: 1px solid #c8b898;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 12px 0;
+  }
+  .dilution-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(184,151,90,0.15);
+  }
+  .dilution-row:last-child { border-bottom: none; }
+  .dilution-row.header {
+    background: #0a0a0a;
+  }
+  .dilution-cell {
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-right: 1px solid rgba(184,151,90,0.15);
+  }
+  .dilution-cell:last-child { border-right: none; }
+  .dilution-row.header .dilution-cell {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: #b8975a;
+    text-transform: uppercase;
+  }
+
+  /* ── DIVIDER ── */
+  .chapter-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 44px 20px 0;
+  }
+  .chapter-divider::before,
+  .chapter-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #c8b898;
+  }
+  .chapter-divider span {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: #b8975a;
+    text-transform: uppercase;
+  }
+
+  /* ── BASICS CHAPTER ── */
+  .basics-block {
+    background: #0a0a0a;
+    margin: 20px 0;
+    padding: 22px 18px;
+    border-radius: 2px;
+  }
+  .basics-block .basics-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    color: #b8975a;
+    margin-bottom: 14px;
+  }
+  .basics-block p {
+    font-size: 12.5px;
+    color: rgba(245,242,238,0.8);
+    line-height: 1.85;
+  }
+  .basics-block .key-point {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(184,151,90,0.2);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #d4b47a;
+    font-size: 14px;
+  }
+
+  /* ── PATTERN LABEL ── */
+  .pattern-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #f5f2ee;
+    background: #b8975a;
+    padding: 5px 14px;
+    margin-bottom: 12px;
+  }
+
+  /* ── WARNING ── */
+  .warning-box {
+    background: #fff8f0;
+    border: 1px solid #e8c88a;
+    padding: 14px 16px;
+    border-radius: 2px;
+    margin: 16px 0;
+  }
+  .warning-box .warning-title {
+    font-size: 11px;
+    color: #9a6820;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .warning-box p, .warning-box li {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #1a1612;
+  }
+
+  /* ── FINISH PATTERNS ── */
+  .finish-card {
+    background: #faf8f4;
+    border: 1px solid #c8b898;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 16px 0;
+  }
+  .finish-card-header {
+    background: #0a0a0a;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    text-align: center;
+  }
+  .finish-card-header .fc-num {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 24px;
+    color: #b8975a;
+    line-height: 1;
+  }
+  .finish-card-header .fc-title {
+    font-size: 13px;
+    color: #f5f2ee;
+    letter-spacing: 0.12em;
+  }
+  .finish-card-body { padding: 16px 16px 18px; }
+  .feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 12px;
+  }
+  .feature-tag {
+    font-size: 11px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    background: #0a0a0a;
+    color: #b8975a;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── LOCK RECIPE ── */
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .recipe-card {
+    background: #faf8f4;
+    border: 1px solid #c8b898;
+    padding: 14px;
+    border-radius: 2px;
+  }
+  .recipe-card .rc-title {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: #b8975a;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .recipe-card li {
+    font-size: 12px;
+    line-height: 1.75;
+    list-style: none;
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(184,151,90,0.12);
+  }
+  .recipe-card li:last-child { border-bottom: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a0a0a;
+    padding: 32px 24px;
+    text-align: center;
+    margin-top: 48px;
+  }
+  footer .footer-logo {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 20px;
+    color: #b8975a;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+  footer p {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(245,242,238,0.35);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (min-width: 600px) {
+    .chapter { padding: 48px 32px 0; }
+    .chapter-divider { margin: 52px 32px 0; }
+  }
+
+  /* ── 印刷・PDF用 ── */
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <p class="header-label">プロフェッショナル専用</p>
+  <h1 class="header-title">MANA<span>PLEX</span><br>① ②</h1>
+  <p class="header-sub">施術別 使い方マニュアル</p>
+  <div class="header-rule"></div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a class="toc-item" href="#ch01"><span class="toc-num">01</span>アルカリカラー</a>
+    <a class="toc-item" href="#ch02"><span class="toc-num">02</span>ヘナ・ハーブカラー</a>
+    <a class="toc-item" href="#ch03"><span class="toc-num">03</span>デジタルパーマ・コテパーマ</a>
+    <a class="toc-item" href="#ch04"><span class="toc-num">04</span>コールドパーマ</a>
+    <a class="toc-item" href="#ch05"><span class="toc-num">05</span>塩基性カラー</a>
+    <a class="toc-item" href="#ch06"><span class="toc-num">06</span>ヘアマニキュア</a>
+    <a class="toc-item" href="#ch07"><span class="toc-num">07</span>ブリーチ</a>
+    <a class="toc-item" href="#ch08"><span class="toc-num">08</span>アルカリ矯正</a>
+    <a class="toc-item" href="#ch09"><span class="toc-num">09</span>酸性矯正</a>
+    <a class="toc-item" href="#ch10"><span class="toc-num">10</span>酸熱トリートメント</a>
+    <a class="toc-item" href="#ch11"><span class="toc-num">11</span>アルキレントリートメント</a>
+    <a class="toc-item" href="#ch12"><span class="toc-num">12</span>使い方の基礎知識</a>
+    <a class="toc-item" href="#ch13"><span class="toc-num">13</span>仕上げ前トリートメント</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ─── CH01 アルカリカラー ─── -->
+<section class="chapter" id="ch01">
+  <div class="chapter-header">
+    <div class="chapter-num">01</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">アルカリカラー</h2>
+      <p class="chapter-tagline">発色ムラを減らし、色持ちを安定させる</p>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <p class="info-title">希釈倍率 — MANAPLEX②</p>
+    <ul>
+      <li>基本 → 10倍希釈</li>
+      <li>強めに使いたい → 5倍希釈</li>
+      <li>カラー剤に混ぜる → 0.1〜0.3%</li>
+    </ul>
+  </div>
+  <div class="info-card">
+    <p class="info-title">希釈倍率 — MANAPLEX①</p>
+    <ul>
+      <li>後処理で使う → 10〜15倍希釈</li>
+      <li>カラー剤に混ぜる → 0.5〜1%</li>
+    </ul>
+  </div>
+
+  <p class="section-label">標準工程</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">カラー塗布 → 放置</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">3</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>塗布 → 3分放置</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">軽く流す or そのまま</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布 → 3分放置</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">流す or お好きなトリートメント工程</span></div>
+    <div class="step"><span class="step-num">7</span><span class="step-text">仕上げ</span></div>
+  </div>
+
+  <p class="section-label" style="margin-top:24px;">高精度工程（ムラを出したくない時）</p>
+  <div class="steps">
+    <div class="step step-accent"><span class="step-num">1</span><span class="step-text">カラー前に<strong>MANAPLEX②（10倍）</strong>塗布 → 3分 → 流さず軽く拭く</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">カラー塗布 → 放置</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>→ 3分</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10倍）</strong>→ 3分</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">好みのトリートメント工程 → 仕上げ</span></div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>発色のムラが減る</li>
+      <li>ダメージ部の暴れが収まる</li>
+      <li>境目が自然につながる</li>
+      <li>色持ちが安定する</li>
+    </ul>
+    <p class="effect-conclusion">→ "もともと髪質がいい人"みたいな仕上がりへ</p>
+  </div>
+
+  <p class="section-label">特に効く髪の状態</p>
+  <div class="hair-tags">
+    <span class="hair-tag">ブリーチ履歴あり</span>
+    <span class="hair-tag">既染部が暗く沈みやすい</span>
+    <span class="hair-tag">白髪が浮く</span>
+    <span class="hair-tag">ダメージムラがある</span>
+    <span class="hair-tag">履歴が複雑</span>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH02 ヘナ・ハーブカラー ─── -->
+<section class="chapter" id="ch02">
+  <div class="chapter-header">
+    <div class="chapter-num">02</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">ヘナ・ハーブカラー</h2>
+      <p class="chapter-tagline">染まりムラを抑え、質感を整える</p>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <p class="info-title">剤in 目安</p>
+    <ul><li>MANAPLEX① → 0.3〜1%</li></ul>
+  </div>
+
+  <p class="section-label">手順</p>
+  <div class="steps">
+    <div class="step step-accent"><span class="step-num">1</span><span class="step-text">前処理：<strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。流さず、軽く水分調整。</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">ヘナ・ハーブ塗布（通常通り）</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">放置</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布 → トリートメント工程</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">仕上げ</span></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col before">
+      <span class="col-label">従来</span>
+      <ul><li>濃淡ムラ</li><li>ゴワつき</li><li>重い</li></ul>
+    </div>
+    <div class="compare-col after">
+      <span class="col-label">MANAPLEX使用時</span>
+      <ul><li>均一発色</li><li>柔らかい</li><li>軽い</li></ul>
+    </div>
+  </div>
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>染まりムラの軽減</li>
+      <li>ダメージ部の沈み込み防止</li>
+      <li>色ブレの減少</li>
+      <li>ゴワつきの軽減</li>
+      <li>自然なツヤ</li>
+    </ul>
+    <p class="effect-conclusion">→ ヘナなのに、質感がいい。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH03 デジタル・コテパーマ ─── -->
+<section class="chapter" id="ch03">
+  <div class="chapter-header">
+    <div class="chapter-num">03</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">デジタルパーマ<br>コテパーマ</h2>
+      <p class="chapter-tagline">熱ダメージを均一化し、柔らかいカールへ</p>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <p class="rule-title">基本ルール</p>
+    <p>熱を使ったカール系薬剤施術には、MANAPLEX②は1剤に混ぜない方が狙いやすいです。</p>
+  </div>
+
+  <p class="section-label">デジタルパーマ — 手順</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">1剤塗布 → 放置</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">チェック</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">中間水洗</span></div>
+    <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布。全体に均一に。</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">ドライ（7〜9割）or そのままワインディング</span></div>
+    <div class="step"><span class="step-num">7</span><span class="step-text">加温（過加熱しない）</span></div>
+    <div class="step"><span class="step-num">8</span><span class="step-text">冷却</span></div>
+    <div class="step"><span class="step-num">9</span><span class="step-text">2剤（酸化）</span></div>
+  </div>
+
+  <p class="section-label" style="margin-top:24px;">コテパーマ — 手順</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">1剤塗布 → 放置</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">3</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>→ 3〜5分放置</span></div>
+    <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX①（10倍）</strong></span></div>
+    <div class="step"><span class="step-num">5</span><span class="step-text">ドライ</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">コテ巻き（120〜160℃）</span></div>
+    <div class="step"><span class="step-num">7</span><span class="step-text">酸化</span></div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>カールが均一になる</li>
+      <li>硬さが出ない</li>
+      <li>パサつきにくい</li>
+      <li>ツヤが自然</li>
+      <li>ダレにくい</li>
+    </ul>
+    <p class="effect-conclusion">→ 柔らかいのに、しっかりカール。</p>
+  </div>
+
+  <p class="section-label">特に効果のある髪の状態</p>
+  <div class="hair-tags">
+    <span class="hair-tag">硬くなりやすい毛</span>
+    <span class="hair-tag">ブリーチ履歴あり</span>
+    <span class="hair-tag">エイジング毛</span>
+    <span class="hair-tag">デジ・コテパーマでパサつく人</span>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH04 コールドパーマ ─── -->
+<section class="chapter" id="ch04">
+  <div class="chapter-header">
+    <div class="chapter-num">04</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">コールドパーマ</h2>
+      <p class="chapter-tagline">かかりムラをなくし、カールを安定させる</p>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <p class="rule-title">基本ルール</p>
+    <p>MANAPLEX②は1剤に混ぜません。<br>1剤に入れる場合：MANAPLEX① → 0.1〜0.3%（or 入れない）</p>
+  </div>
+
+  <p class="section-label">手順</p>
+  <div class="info-card">
+    <p class="info-title">前処理オプション</p>
+    <p>MANAPLEX① 30倍希釈水を前処理として塗布してもよい</p>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">1剤塗布 → 放置</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">チェック</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">中間水洗</span></div>
+    <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。ロッドオンのまま、全体にしっかり行き渡らせる。</span></div>
+    <div class="step"><span class="step-num">5</span><span class="step-text">軽く流す or そのまま</span></div>
+    <div class="step step-accent"><span class="step-num">6</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布。全体に均一に。</span></div>
+    <div class="step"><span class="step-num">7</span><span class="step-text">2剤（酸化）</span></div>
+    <div class="step"><span class="step-num">8</span><span class="step-text">外して仕上げ</span></div>
+  </div>
+
+  <p class="section-label" style="margin-top:24px;">かかりムラ修正手順</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">1剤後に流す</span></div>
+    <div class="step step-accent"><span class="step-num">2</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>→ 5分</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">そのまま or 軽く流す</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">1剤再塗布（必要箇所のみ）</span></div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>カールが均一になる</li>
+      <li>ダレにくい</li>
+      <li>リッジが綺麗に出る</li>
+      <li>ゴワつかない</li>
+      <li>柔らかく弾む</li>
+    </ul>
+    <p class="effect-conclusion">→ ちゃんとかかっていて、柔らかい。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH05 塩基性カラー ─── -->
+<section class="chapter" id="ch05">
+  <div class="chapter-header">
+    <div class="chapter-num">05</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">塩基性カラー</h2>
+      <p class="chapter-tagline">発色ムラを防ぎ、ベタつかない質感へ</p>
+    </div>
+  </div>
+
+  <p class="section-label">手順</p>
+  <div class="steps">
+    <div class="step step-accent"><span class="step-num">1</span><span class="step-text">前処理：<strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。流さず、軽く水分調整。</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">塩基性カラー塗布（通常通り）</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">放置</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布 → トリートメント工程</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">仕上げ</span></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col before">
+      <span class="col-label">従来</span>
+      <ul><li>濃淡ムラ</li><li>ベタつき</li><li>重い</li></ul>
+    </div>
+    <div class="compare-col after">
+      <span class="col-label">MANAPLEX使用時</span>
+      <ul><li>均一発色</li><li>軽い</li><li>自然なツヤ</li></ul>
+    </div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>発色ムラの軽減</li>
+      <li>既染部の沈み防止</li>
+      <li>色ブレの減少</li>
+      <li>ベタつきの軽減</li>
+      <li>手触りの向上</li>
+    </ul>
+    <p class="effect-conclusion">→ 狙った色が、出ます。</p>
+  </div>
+
+  <p class="section-label">特に効く髪の状態</p>
+  <div class="hair-tags">
+    <span class="hair-tag">ブリーチ毛</span>
+    <span class="hair-tag">ダメージ毛</span>
+    <span class="hair-tag">エイジング毛</span>
+    <span class="hair-tag">塩基性でムラが出る人</span>
+    <span class="hair-tag">濃く入りすぎる人</span>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH06 ヘアマニキュア ─── -->
+<section class="chapter" id="ch06">
+  <div class="chapter-header">
+    <div class="chapter-num">06</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">ヘアマニキュア</h2>
+      <p class="chapter-tagline">ムラ・濃淡差・ベタつきを解消</p>
+    </div>
+  </div>
+
+  <p class="section-label">手順</p>
+  <div class="steps">
+    <div class="step step-accent"><span class="step-num">1</span><span class="step-text">前処理：<strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。流さず、軽く水分調整。</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">マニキュア塗布（通常通り）</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">放置</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布 → トリートメント工程</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">仕上げ</span></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col before">
+      <span class="col-label">従来</span>
+      <ul><li>濃淡ムラ</li><li>ベタつく</li><li>重い</li></ul>
+    </div>
+    <div class="compare-col after">
+      <span class="col-label">MANAPLEX使用時</span>
+      <ul><li>均一発色</li><li>軽い</li><li>自然なツヤ</li></ul>
+    </div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>色ムラの軽減</li>
+      <li>既染部の沈み込み防止</li>
+      <li>発色の均一化</li>
+      <li>ベタつきの軽減</li>
+      <li>手触りの改善</li>
+    </ul>
+    <p class="effect-conclusion">→ マニキュアっぽくない仕上がりへ。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH07 ブリーチ ─── -->
+<section class="chapter" id="ch07">
+  <div class="chapter-header">
+    <div class="chapter-num">07</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">ブリーチ</h2>
+      <p class="chapter-tagline">抜けムラを減らし、ベースを綺麗に整える</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <p class="warning-title">⚠ 最重要ルール</p>
+    <p>MANAPLEX②をブリーチ剤に混ぜる場合は<strong>1%以下</strong>。基本は0.3〜0.5%、もしくは入れない。<br>ブリーチ剤への剤in：MANAPLEX① → 0.5〜2%</p>
+  </div>
+
+  <p class="section-label">手順</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">ブリーチ塗布（通常通り）</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">放置 → チェック</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">流す。薬剤をしっかり除去する → MANA repair shampoo</span></div>
+    <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。全体に均一に。ダメージ部はしっかりと。</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">流す → 仕上げ</span></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col before">
+      <span class="col-label">従来</span>
+      <ul><li>ムラ</li><li>ゴワつき</li><li>ダメージ感が強い</li></ul>
+    </div>
+    <div class="compare-col after">
+      <span class="col-label">MANAPLEX使用時</span>
+      <ul><li>均一リフト</li><li>柔らかい</li><li>次工程がしやすい</li></ul>
+    </div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>抜けムラの軽減</li>
+      <li>切れ毛リスクの低減</li>
+      <li>パサつきの軽減</li>
+      <li>質感の維持</li>
+      <li>後工程の安定</li>
+    </ul>
+    <p class="effect-conclusion">→ 抜けているのに、状態がいい。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH08 アルカリ矯正 ─── -->
+<section class="chapter" id="ch08">
+  <div class="chapter-header">
+    <div class="chapter-num">08</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">アルカリ矯正</h2>
+      <p class="chapter-tagline">ビビり・硬化・ムラ・パサつきを防ぐ</p>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <p class="rule-title">基本ルール</p>
+    <p>MANAPLEX②は1剤に混ぜる時は極小量にするか、混ぜない。後処理で使うことで効果を最大限発揮できます。</p>
+  </div>
+
+  <p class="section-label">手順（ベーシック）</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">1剤塗布（アルカリ還元）通常通り</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">放置 → チェック</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">流す。還元剤をしっかり除去する → MANA repair shampoo → 流す。</span></div>
+    <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。中間〜毛先を中心に。ダメージ部はしっかりと。</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布。全体に均一に。</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">ドライ</span></div>
+    <div class="step"><span class="step-num">7</span><span class="step-text">アイロン</span></div>
+    <div class="step"><span class="step-num">8</span><span class="step-text">2剤（酸化）</span></div>
+  </div>
+
+  <p class="section-label" style="margin-top:24px;">アルキレン併用パターン</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1〜2</span><span class="step-text">ベーシックと同じ</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">流す</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">アルキレン</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX②</strong> → <strong>MANAPLEX①</strong></span></div>
+    <div class="step"><span class="step-num">6〜</span><span class="step-text">以降同じ</span></div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>ビビりリスクの低減</li>
+      <li>硬さの軽減</li>
+      <li>パサつきの軽減</li>
+      <li>ツヤの向上</li>
+      <li>均一な仕上がり</li>
+    </ul>
+    <p class="effect-conclusion">→ アルカリなのに、柔らかい。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH09 酸性矯正 ─── -->
+<section class="chapter" id="ch09">
+  <div class="chapter-header">
+    <div class="chapter-num">09</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">酸性矯正</h2>
+      <p class="chapter-tagline">壊さずに整える、自然なストレートへ</p>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <p class="rule-title">基本ルール</p>
+    <p>MANAPLEX②は還元剤に入れない。反応中に入れるとバランスが崩れる可能性があります。</p>
+  </div>
+
+  <p class="section-label">手順</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">還元塗布（スピエラ・GMTなど）</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">放置 → チェック</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。毛先〜中間を中心に。根元は必要に応じて。</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布。全体に均一に。</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">ドライ</span></div>
+    <div class="step"><span class="step-num">7</span><span class="step-text">アイロン</span></div>
+    <div class="step"><span class="step-num">8</span><span class="step-text">酸化</span></div>
+  </div>
+
+  <p class="section-label" style="margin-top:24px;">アルキレン併用パターン</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1〜2</span><span class="step-text">同じ</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">流す</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">アルキレン</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX②</strong> → <strong>MANAPLEX①</strong></span></div>
+    <div class="step"><span class="step-num">6〜</span><span class="step-text">以降同じ</span></div>
+  </div>
+
+  <div class="info-card" style="margin-top:16px;">
+    <p class="info-title">アイロンの考え方</p>
+    <p>整った状態を、軽く形にする。アイロンの圧が軽くても、きちんと伸びます。</p>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>柔らかさが残る</li>
+      <li>不自然な硬さが出ない</li>
+      <li>パサつきにくい</li>
+      <li>ツヤが自然</li>
+      <li>毛先が死なない</li>
+    </ul>
+    <p class="effect-conclusion">→ やりすぎてないストレートへ。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH10 酸熱 ─── -->
+<section class="chapter" id="ch10">
+  <div class="chapter-header">
+    <div class="chapter-num">10</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">酸熱トリートメント</h2>
+      <p class="chapter-tagline">硬くなりやすい酸熱を、柔らかく仕上げる</p>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <p class="rule-title">基本ルール</p>
+    <p>MANAPLEX②は酸熱剤に混ぜない。混ぜると収斂バランスが乱れます。<br>MANAPLEX①を剤inで使う場合は <strong>0.5〜1%以内</strong>。</p>
+  </div>
+
+  <p class="section-label">手順</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">酸熱トリートメント塗布</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">放置</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。全体に均一に。</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布 → トリートメント工程</span></div>
+    <div class="step"><span class="step-num">6</span><span class="step-text">ドライ</span></div>
+    <div class="step"><span class="step-num">7</span><span class="step-text">熱処理（仕上げ程度に）</span></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col before">
+      <span class="col-label">従来</span>
+      <ul><li>硬い</li><li>重い</li><li>繰り返しで劣化する</li></ul>
+    </div>
+    <div class="compare-col after">
+      <span class="col-label">MANAPLEX使用時</span>
+      <ul><li>柔らかい</li><li>軽い</li><li>繰り返しても安定する</li></ul>
+    </div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>硬さの軽減</li>
+      <li>ゴワつきの改善</li>
+      <li>ツヤの向上</li>
+      <li>まとまりの向上</li>
+      <li>持続性の向上</li>
+    </ul>
+    <p class="effect-conclusion">→ 柔らかい酸熱になります。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH11 アルキレン ─── -->
+<section class="chapter" id="ch11">
+  <div class="chapter-header">
+    <div class="chapter-num">11</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">炭酸プロピレン<br>アルキレントリートメント</h2>
+      <p class="chapter-tagline">柔らかさを安定させ、持続力を高める</p>
+    </div>
+  </div>
+
+  <p class="section-label">手順</p>
+  <div class="steps">
+    <div class="step"><span class="step-num">1</span><span class="step-text">前処理（必要に応じて）</span></div>
+    <div class="step"><span class="step-num">2</span><span class="step-text">アルキレン塗布（全体に均一に）</span></div>
+    <div class="step"><span class="step-num">3</span><span class="step-text">放置（規定時間）</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX②（10倍）</strong>塗布 → 3〜5分放置。全体にしっかりと。</span></div>
+    <div class="step step-accent"><span class="step-num">6</span><span class="step-text"><strong>MANAPLEX①（10〜15倍）</strong>塗布</span></div>
+    <div class="step"><span class="step-num">7</span><span class="step-text">流す → 仕上げ</span></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col before">
+      <span class="col-label">従来</span>
+      <ul><li>柔らかいが不安定</li><li>持ちが弱い</li><li>場所によって差が出る</li></ul>
+    </div>
+    <div class="compare-col after">
+      <span class="col-label">MANAPLEX使用時</span>
+      <ul><li>均一に柔らかい</li><li>まとまる</li><li>持続する</li></ul>
+    </div>
+  </div>
+
+  <div class="effect-box">
+    <p class="effect-title">仕上がり効果</p>
+    <ul class="effect-list">
+      <li>柔らかさの均一化</li>
+      <li>広がりの抑制</li>
+      <li>まとまりの向上</li>
+      <li>ツヤが出る</li>
+      <li>持続力の向上</li>
+    </ul>
+    <p class="effect-conclusion">→ 自然に整った髪になります。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH12 基礎知識 ─── -->
+<section class="chapter" id="ch12">
+  <div class="chapter-header">
+    <div class="chapter-num">12</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">使い方の基礎知識</h2>
+      <p class="chapter-tagline">使うタイミング・時間を置く理由</p>
+    </div>
+  </div>
+
+  <div class="basics-block">
+    <p class="basics-title">剤in vs 後処理 — どちらが持つ？</p>
+    <p>一見、剤inの方が奥まで効いて持ちが良さそうに思えますが、結論からいうと<strong style="color:#d4b47a;">持ちは後処理の方が安定して長持ち</strong>します。</p>
+    <p style="margin-top:10px;">薬剤中の髪は「膨潤・反応・構造が動いている」状態。そこに剤inすると薬剤と一緒に流れてしまい、均一に残留せず効きにムラができます。</p>
+    <p style="margin-top:10px;">後処理は薬剤の反応が終わり、髪の構造が落ち着き始めたタイミング。このタイミングで入れると均一に配置・固定しやすくなります。</p>
+    <p class="key-point">→ 本質は補修ではなく、構造を整えて配置するもの。配置が決まるタイミングが重要。</p>
+  </div>
+
+  <div class="basics-block" style="margin-top:16px;">
+    <p class="basics-title">剤inが有効なケース</p>
+    <p>カラーやアルカリ矯正などの<strong style="color:#d4b47a;">アルカリ系薬剤</strong>には剤inが有効。pHの数字が大きくなるにつれ、剤inの量を増やしていくイメージです。</p>
+  </div>
+
+  <p class="section-label" style="margin-top:24px;">複合施術時の濃度調整例</p>
+  <div class="dilution-grid">
+    <div class="dilution-row header">
+      <div class="dilution-cell">施術</div>
+      <div class="dilution-cell">MANAPLEX①</div>
+      <div class="dilution-cell">MANAPLEX②</div>
+    </div>
+    <div class="dilution-row">
+      <div class="dilution-cell">ブリーチonカラー<br><span style="font-size:11px;color:#6b5f55;">ブリーチ剤</span></div>
+      <div class="dilution-cell">1.5〜2%</div>
+      <div class="dilution-cell">0.5〜1%</div>
+    </div>
+    <div class="dilution-row">
+      <div class="dilution-cell">ブリーチonカラー<br><span style="font-size:11px;color:#6b5f55;">カラー剤</span></div>
+      <div class="dilution-cell">1〜0.5%</div>
+      <div class="dilution-cell">0.5〜0.3%</div>
+    </div>
+    <div class="dilution-row">
+      <div class="dilution-cell">矯正カラー<br><span style="font-size:11px;color:#6b5f55;">アルカリ還元剤</span></div>
+      <div class="dilution-cell">0.5〜1%</div>
+      <div class="dilution-cell">0.1〜0.3%</div>
+    </div>
+    <div class="dilution-row">
+      <div class="dilution-cell">矯正カラー<br><span style="font-size:11px;color:#6b5f55;">カラー剤</span></div>
+      <div class="dilution-cell">1%</div>
+      <div class="dilution-cell">0.3〜0.5%</div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <p class="info-title">MANAPLEX② — 3〜5分置く理由</p>
+    <p>浸透させるためではなく、<strong>内部状態を均一化させるための時間</strong>です。施術後の還元ムラ・水分ムラ・膨潤ムラをリセットし、水分の再配置と成分の相互作用ネットワークが馴染むのに3〜5分かかります。すぐ流すと表面しか効かず、ムラが残ります。</p>
+    <p style="margin-top:8px;color:#6b5f55;font-size:12px;">※5分以上は変化がほぼ頭打ちでした。（検証・分析結果）</p>
+  </div>
+
+  <div class="info-card">
+    <p class="info-title">MANAPLEX① — 時間を置かない理由</p>
+    <p>②で内部状態が整った後は、①はその状態に乗って安定させる役割なので、塗布して馴染ませればほぼ完了です。超ダメージ毛や吸い込みムラが激しい場合は1分程度が目安。</p>
+  </div>
+</section>
+
+<div class="chapter-divider"><span>◆</span></div>
+
+<!-- ─── CH13 仕上げトリートメント ─── -->
+<section class="chapter" id="ch13">
+  <div class="chapter-header">
+    <div class="chapter-num">13</div>
+    <div class="chapter-title-wrap">
+      <h2 class="chapter-title">仕上げ前<br>トリートメントマニュアル</h2>
+      <p class="chapter-tagline">施術後の質感を決める4パターン</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <p class="warning-title">⚠ アルキレン希釈比率</p>
+    <p style="font-size:14px;font-weight:500;margin-bottom:10px;">正しい比率</p>
+    <div style="background:#fff;border:1px solid #e8c88a;border-radius:4px;padding:12px 14px;text-align:center;margin-bottom:10px;">
+      <span style="font-family:'Georgia','Times New Roman',serif;font-size:22px;letter-spacing:0.05em;color:#9a6820;">水 1.5 ：剤 1</span><br>
+      <span style="font-size:11px;color:#6b5f55;letter-spacing:0.05em;">（いってんご）　（いち）</span>
+    </div>
+    <p style="font-size:12.5px;color:#1a1612;line-height:1.9;">
+      例）水15ml ＋ 剤10ml（合計25ml）<br>
+      早見表：1.5:1 / 3:2 / 4.5:3 / 6:4
+    </p>
+  </div>
+
+  <!-- Pattern 1 -->
+  <div class="finish-card">
+    <div class="finish-card-header">
+      <span class="fc-num">①</span>
+      <span class="fc-title">シンプル仕上げ（基本）</span>
+    </div>
+    <div class="finish-card-body">
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><span class="step-text">ハイドロシフター</span></div>
+        <div class="step"><span class="step-num">2</span><span class="step-text">アルキレン（水：剤＝1.5：1）</span></div>
+        <div class="step"><span class="step-num">3</span><span class="step-text">軽く流し</span></div>
+        <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②</strong></span></div>
+        <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①</strong></span></div>
+        <div class="step"><span class="step-num">6</span><span class="step-text">ハイドロシフター</span></div>
+        <div class="step"><span class="step-num">7</span><span class="step-text">MANA repair treatment</span></div>
+      </div>
+      <div class="feature-tags">
+        <span class="feature-tag">軽い</span>
+        <span class="feature-tag">柔らかい</span>
+        <span class="feature-tag">扱いやすい</span>
+      </div>
+      <p style="font-size:12px;color:#6b5f55;margin-top:12px;">初めての導入・軟毛細毛・軽さを出したい施術・日常サロンワークに。</p>
+    </div>
+  </div>
+
+  <!-- Pattern 2 -->
+  <div class="finish-card">
+    <div class="finish-card-header">
+      <span class="fc-num">②</span>
+      <span class="fc-title">質感重視仕上げ</span>
+    </div>
+    <div class="finish-card-body">
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><span class="step-text">ハイドロシフター</span></div>
+        <div class="step"><span class="step-num">2</span><span class="step-text">アルキレン（水：剤＝1.5：1）</span></div>
+        <div class="step"><span class="step-num">3</span><span class="step-text">軽く流し</span></div>
+        <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②</strong></span></div>
+        <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①</strong></span></div>
+        <div class="step"><span class="step-num">6</span><span class="step-text">ハイドロシフター</span></div>
+        <div class="step"><span class="step-num">7</span><span class="step-text">Ani SPトリートメント</span></div>
+        <div class="step"><span class="step-num">8</span><span class="step-text">軽く流し</span></div>
+        <div class="step"><span class="step-num">9</span><span class="step-text">MANA repair treatment</span></div>
+      </div>
+      <div class="feature-tags">
+        <span class="feature-tag">手触り向上</span>
+        <span class="feature-tag">指通り向上</span>
+        <span class="feature-tag">まとまり</span>
+      </div>
+      <p style="font-size:12px;color:#6b5f55;margin-top:12px;">ダメージ毛・パサつきやすい毛・まとまり重視の施術に。</p>
+    </div>
+  </div>
+
+  <!-- Pattern 3 -->
+  <div class="finish-card">
+    <div class="finish-card-header">
+      <span class="fc-num">③</span>
+      <span class="fc-title">ロック仕上げ（持ち重視）</span>
+    </div>
+    <div class="finish-card-body">
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><span class="step-text">ハイドロシフター</span></div>
+        <div class="step"><span class="step-num">2</span><span class="step-text">アルキレン（水：剤＝1.5：1）</span></div>
+        <div class="step"><span class="step-num">3</span><span class="step-text">軽く流し</span></div>
+        <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②</strong></span></div>
+        <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①</strong></span></div>
+        <div class="step"><span class="step-num">6</span><span class="step-text">過酸化水素（ロック）放置2〜5分</span></div>
+        <div class="step"><span class="step-num">7</span><span class="step-text">軽く流し</span></div>
+        <div class="step"><span class="step-num">8</span><span class="step-text">ハイドロシフター</span></div>
+        <div class="step"><span class="step-num">9</span><span class="step-text">MANA repair treatment</span></div>
+      </div>
+      <div class="feature-tags">
+        <span class="feature-tag">形状持続力UP</span>
+        <span class="feature-tag">湿気耐性UP</span>
+        <span class="feature-tag">安定感</span>
+      </div>
+      <p style="font-size:12px;color:#6b5f55;margin-top:12px;">縮毛矯正・湿気の影響を受けやすい毛・持ちを重視したい施術に。</p>
+    </div>
+  </div>
+
+  <!-- Pattern 4 -->
+  <div class="finish-card">
+    <div class="finish-card-header">
+      <span class="fc-num">④</span>
+      <span class="fc-title">ロック＋質感仕上げ（フル）</span>
+    </div>
+    <div class="finish-card-body">
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><span class="step-text">ハイドロシフター</span></div>
+        <div class="step"><span class="step-num">2</span><span class="step-text">アルキレン（水：剤＝1.5：1）</span></div>
+        <div class="step"><span class="step-num">3</span><span class="step-text">軽く流し</span></div>
+        <div class="step step-accent"><span class="step-num">4</span><span class="step-text"><strong>MANAPLEX②</strong></span></div>
+        <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX①</strong></span></div>
+        <div class="step"><span class="step-num">6</span><span class="step-text">過酸化水素（ロック）放置2〜5分</span></div>
+        <div class="step"><span class="step-num">7</span><span class="step-text">軽く流し</span></div>
+        <div class="step"><span class="step-num">8</span><span class="step-text">ハイドロシフター</span></div>
+        <div class="step"><span class="step-num">9</span><span class="step-text">Ani SPトリートメント</span></div>
+        <div class="step"><span class="step-num">10</span><span class="step-text">軽く流し</span></div>
+        <div class="step"><span class="step-num">11</span><span class="step-text">MANA repair treatment</span></div>
+      </div>
+      <div class="feature-tags">
+        <span class="feature-tag">持続力＋手触り両立</span>
+        <span class="feature-tag">完成度MAX</span>
+      </div>
+      <p style="font-size:12px;color:#6b5f55;margin-top:12px;">ハイダメージ毛・ブリーチ毛・仕上がり品質を最大化したい施術に。</p>
+    </div>
+  </div>
+
+  <p class="section-label" style="margin-top:28px;">ロック液の作り方</p>
+  <div class="recipe-grid">
+    <div class="recipe-card">
+      <p class="rc-title">基本ロック液</p>
+      <ul>
+        <li>3%オキシ：30ml</li>
+        <li>水：70ml</li>
+        <li>（約0.9%）</li>
+      </ul>
+    </div>
+    <div class="recipe-card">
+      <p class="rc-title">ジチオ入りロック液</p>
+      <ul>
+        <li>3%オキシ：30ml</li>
+        <li>水：68〜69ml</li>
+        <li>イージス：1〜2ml</li>
+      </ul>
+    </div>
+  </div>
+  <div class="info-card">
+    <p class="info-title">ジチオ入りの特徴</p>
+    <p>柔らかくロック / 硬くなりにくい / しなやかさ維持</p>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <p class="footer-logo">MANA</p>
+  <p>MANAPLEX ①② 施術別マニュアル</p>
+  <p style="margin-top:6px;">プロフェッショナル専用 — 無断転載・転用禁止</p>
+</footer>
+
+
+
+</body>
+</html>
