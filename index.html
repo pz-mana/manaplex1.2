@@ -10,6 +10,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
+    overflow-x: hidden;
     background: #f5f2ee;
     color: #1a1612;
     font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'YuGothic', sans-serif;
@@ -184,7 +185,7 @@
     font-size: 13.5px;
     line-height: 1.85;
     color: #1a1612;
-    word-break: keep-all;
+    word-break: break-all;
     overflow-wrap: break-word;
   }
   .step-text strong {
@@ -491,7 +492,8 @@
     color: #f5f2ee;
     letter-spacing: 0.12em;
   }
-  .finish-card-body { padding: 16px 16px 18px; }
+  .finish-card-body {
+    overflow-x: hidden; padding: 16px 16px 18px; }
   .feature-tags {
     display: flex;
     flex-wrap: wrap;
