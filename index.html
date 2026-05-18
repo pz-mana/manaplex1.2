@@ -10,7 +10,6 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    overflow-x: hidden;
     background: #f5f2ee;
     color: #1a1612;
     font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'YuGothic', sans-serif;
@@ -170,6 +169,7 @@
     padding: 14px 14px;
     border-bottom: 1px solid rgba(184,151,90,0.15);
     position: relative;
+    overflow: hidden;
   }
   .step:last-child { border-bottom: none; }
   .step-num {
@@ -186,7 +186,9 @@
     line-height: 1.85;
     color: #1a1612;
     word-break: break-all;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    min-width: 0;
   }
   .step-text strong {
     color: #0a0a0a;
@@ -492,8 +494,7 @@
     color: #f5f2ee;
     letter-spacing: 0.12em;
   }
-  .finish-card-body {
-    overflow-x: hidden; padding: 16px 16px 18px; }
+  .finish-card-body { padding: 16px 16px 18px; }
   .feature-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1025,9 +1026,10 @@
   <div class="steps">
     <div class="step"><span class="step-num">1〜2</span><span class="step-text">ベーシックと同じ</span></div>
     <div class="step"><span class="step-num">3</span><span class="step-text">流す</span></div>
-    <div class="step"><span class="step-num">4</span><span class="step-text">アルキレン</span></div>
-    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX②</strong> → <strong>MANAPLEX①</strong></span></div>
-    <div class="step"><span class="step-num">6〜</span><span class="step-text">以降同じ</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">アルキレン塗布</span></div>
+    <div class="step"><span class="step-num">5</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">6</span><span class="step-text"><strong>MANAPLEX②</strong> → <strong>MANAPLEX①</strong></span></div>
+    <div class="step"><span class="step-num">7〜</span><span class="step-text">以降同じ</span></div>
   </div>
 
   <div class="effect-box">
@@ -1076,9 +1078,10 @@
   <div class="steps">
     <div class="step"><span class="step-num">1〜2</span><span class="step-text">同じ</span></div>
     <div class="step"><span class="step-num">3</span><span class="step-text">流す</span></div>
-    <div class="step"><span class="step-num">4</span><span class="step-text">アルキレン</span></div>
-    <div class="step step-accent"><span class="step-num">5</span><span class="step-text"><strong>MANAPLEX②</strong> → <strong>MANAPLEX①</strong></span></div>
-    <div class="step"><span class="step-num">6〜</span><span class="step-text">以降同じ</span></div>
+    <div class="step"><span class="step-num">4</span><span class="step-text">アルキレン塗布</span></div>
+    <div class="step"><span class="step-num">5</span><span class="step-text">流す</span></div>
+    <div class="step step-accent"><span class="step-num">6</span><span class="step-text"><strong>MANAPLEX②</strong> → <strong>MANAPLEX①</strong></span></div>
+    <div class="step"><span class="step-num">7〜</span><span class="step-text">以降同じ</span></div>
   </div>
 
   <div class="info-card" style="margin-top:16px;">
@@ -1274,6 +1277,19 @@
       <h2 class="chapter-title">仕上げ前<br>トリートメントマニュアル</h2>
       <p class="chapter-tagline">施術後の質感を決める4パターン</p>
     </div>
+  </div>
+
+  <div class="info-card" style="margin-bottom:16px;">
+    <p class="info-title">※ 他社様製品のご案内</p>
+    <ul>
+      <li>ハイドロシフター → <strong><span style="text-decoration:underline;text-decoration-color:#c0392b;text-underline-offset:3px;">WECO BASE様</span></strong></li>
+      <li>Ani SP トリートメント → <strong><span style="text-decoration:underline;text-decoration-color:#c0392b;text-underline-offset:3px;">Ani products様</span></strong></li>
+      <li>アクシオンカーボネート → <strong><span style="text-decoration:underline;text-decoration-color:#c0392b;text-underline-offset:3px;">MAGO様</span></strong></li>
+      <li>ケラフェクトfix No1 → <strong><span style="text-decoration:underline;text-decoration-color:#c0392b;text-underline-offset:3px;">トライグッズ様</span></strong></li>
+      <li>メテオfix → <strong><span style="text-decoration:underline;text-decoration-color:#c0392b;text-underline-offset:3px;">メテオグループ or トライグッズ様</span></strong></li>
+      <li>レブリ ベルベットブースターA or レブリ シルキーブースターB → <strong><span style="text-decoration:underline;text-decoration-color:#c0392b;text-underline-offset:3px;">ハホニコ様</span></strong></li>
+      <li>除光液 → <strong><span style="text-decoration:underline;text-decoration-color:#c0392b;text-underline-offset:3px;">無印良品様</span></strong></li>
+    </ul>
   </div>
 
   <div class="warning-box">
